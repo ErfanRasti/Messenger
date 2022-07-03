@@ -3,12 +3,12 @@
 }
 
 .back-top {
-    background-color: #c00000;
+    background-color: #ffba2f;
     height: 20vh;
 }
 
 .back-main {
-    background-color: #000000;
+    background-color: #0fbea7;
     height: 80vh;
 }
 
@@ -34,14 +34,20 @@
     background-color: #2d2d2d;
     min-height: 600px;
     border-radius: 10px;
+    background-image: url("https://www.wallpapertip.com/wmimgs/7-74825_best-wallpaper-for-whatsapp.jpg");
+
 }
 
 .contact-table-scroll {
     width: 100%;
     height: 100%;
-    overflow: scroll;
+    overflow:scroll;
     height: 700px;
     background-color: #2d2d2d;
+
+    background-image: url("https://www.wallpapertip.com/wmimgs/7-74825_best-wallpaper-for-whatsapp.jpg");
+
+
 }
 
 .table-hover {
@@ -53,21 +59,38 @@
     background-color: #323232;
     min-height: 600px;
     border-radius: 10px;
-
+    
+    background-image: url("https://cdn.wallpapersafari.com/87/66/g7uPjL.jpg");
+    
+    background-size: cover ;
+    background-position: top;
 }
 
 .message-table-scroll {
     overflow-y: scroll;
     height: 550px;
+
+    color: #2200fd;
+
 }
 
 .message-box {
-    background-color: #393939;
-    color: #441212;
+    background-color: cadetblue;
+    opacity: 0.9;
+    border-radius: 1.5rem;
+    color: #ff0404;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    
+    
+}
+#message_input{
+    width: 120%;
 }
 
 .btn {
-    background-color: #a90101;
+    background-color: #19d668;
     border-radius: 10px;
     color: #ffffff;
     font-weight: bold;
@@ -76,9 +99,40 @@
     margin: 5px;
 }
 
+.form-control{
+    color: #2200fd;
+}
+
+#user_chat-top{
+    color: hsl(353, 82%, 15%);
+    font-size: 20px;
+    text-decoration: none;
+}
+
+#iconblock_chat-top{
+    background-color: rgb(78, 111, 174 );
+    border-radius: 1rem;
+}
+
+::-webkit-scrollbar {
+    width: 0.8rem;
+    height: 0.8rem;
+    }
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgb(242, 49, 15); 
+    border-radius: 50rem;
+    }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(128, 211, 98); 
+    border-radius: 1rem;
+    }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(220, 36, 36); 
+    }
 .chat-top {
-    background-color: #da831f;
+    background-color: cadetblue;
     min-height: 50px;
     border-radius: 20px;
+    
 
   }

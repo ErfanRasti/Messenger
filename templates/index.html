@@ -23,11 +23,11 @@
                     <table class="table table-hover">
                         <tbody>
                             {% for user in users %}
-                            <tr>
+                            <tr id="iconblock_chat-top">
                                 <td><img src="{% static 'assets/dp-icon.png' %}" width="30" height="30" alt=""
                                         class="profile-image rounded-circle">
                                 </td>
-                                <td><a href="{% url 'chat' username=user.username %}">{{user.username}}</a></td>
+                                <td><a href="{% url 'chat' username=user.username %}" id="user_chat-top" >{{user.username}}</a></td>
                             </tr>
                             {% endfor %}
                         </tbody>
