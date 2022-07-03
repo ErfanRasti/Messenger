@@ -53,6 +53,7 @@ class PersonalChatConsumer(AsyncWebsocketConsumer):
         )
         
     async def chat_message(self, event):
+        """Send the message to the user."""
         message = event['message']
         username = event['username']
 
