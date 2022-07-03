@@ -61,4 +61,10 @@ class PersonalChatConsumer(AsyncWebsocketConsumer):
             'message': message,
             'username': username
         }))
+    
+    @database_sync_to_async
+    def save_message(self, username, thread_name, message):
+        """Save the message to the database."""
+        ChatModel.objects.create(
+            sender=username, message=message, thread_name=thread_name)
         
