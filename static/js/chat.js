@@ -10,13 +10,25 @@ const socket = new WebSocket(
 );
 
 // Opening the connection
-socket.onopen = function (error) { console.log("CONNECTION ESTABLISHED"); }
+socket.onopen = function (e) { console.log("CONNECTION ESTABLISHED"); }
 
 // Closing the connection
-socket.onclose = function (error) { console.log("CONNECTION CLOSED"); }
+socket.onclose = function (e) { console.log("CONNECTION LOST"); }
 
 // Error handling
-socket.onerror = function (error) { console.log(e); }
+socket.onerror = function (e) { console.log(e); }
 
 // Receiving a message
-socket.onmessage = function (message) { console.log(message); }
+socket.onmessage = function (e) { console.log(e); }
+
+document.querySelector('#chat-message-submit').onclick = function(e){
+    const message_input = document.querySelector('#message_input');
+    const message = message_input.value;
+
+    socket.send(JSON.stringify({
+        'message':message,
+        'username':message_username
+    }));
+
+    message_input.value = '';
+}

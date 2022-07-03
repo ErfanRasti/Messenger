@@ -25,7 +25,7 @@ application = ProtocolTypeRouter(
             URLRouter(
                 [
                     # ws: stands for websocket
-                    path("ws/<int:id>/", PersonalChatConsumer)
+                    path('ws/<int:id>/', PersonalChatConsumer)
                 ]
             )
         )

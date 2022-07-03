@@ -73,7 +73,7 @@ TEMPLATES = [
 ]
 
 # WSGI_APPLICATION = "Messenger.wsgi.application"
-ASGI_APPLICATION = "Messenger.asgi.application"
+ASGI_APPLICATION = 'Messenger.asgi.application'
 
 
 # Database
@@ -83,7 +83,7 @@ ASGI_APPLICATION = "Messenger.asgi.application"
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
-        "CONFIG": {"hosts": [("localhost", 6379)]},
+        "CONFIG": {"hosts": [("127.0.0.1", 6379)]},
     }
 }
 

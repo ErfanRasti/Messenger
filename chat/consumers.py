@@ -11,10 +11,10 @@ class PersonalChatConsumer(AsyncWebsocketConsumer):
 
     async def connect(self):
         """Connect the user to the chat."""
-        my_id = self.scope["user"].id
+        my_id = self.scope['user'].id
 
         # kwargs: get the id from websocket url
-        other_user_id = self.scope["url_route"]["kwargs"]["id"]
+        other_user_id = self.scope['url_route']['kwargs']['id']
 
         # Creating a unique group name for the chat
         if int(my_id) > int(other_user_id):
@@ -26,12 +26,38 @@ class PersonalChatConsumer(AsyncWebsocketConsumer):
 
         # fmt: off
         await self.channel_layer.group_add(self.room_group_name,
-                                           self.channel_name)
+                                           self.channel_name,)
 
         await self.accept()
+        await self.send(text_data=self.room_group_name)
 
-    async def disconnect(self, close_code):
+    async def disconnect(self, code):
         """Disconnect the user from the chat."""
-        # self.channel_layer.group_discard(self.room_group_name,
-        await self.channel_layer.group_discard(self.room_group_name,
-                                               self.channel_layer)
+        self.channel_layer.group_discard(self.room_group_name,
+                                         self.channel_layer)
+
+    async def receive(self, text_data=None, bytes_data=None):
+        """Receive the message from the user."""
+        data = json.loads(text_data)
+        message = data['message']
+        username = data['username']
+
+        await self.save_message(username, self.room_group_name, message)
+        await self.channel_layer.group_send(
+            self.room_group_name,
+            {
+                'type': 'chat_message',
+                'message': message,
+                'username': username,
+            }
+        )
+        
+    async def chat_message(self, event):
+        message = event['message']
+        username = event['username']
+
+        await self.send(text_data=json.dumps({
+            'message': message,
+            'username': username
+        }))
+        
