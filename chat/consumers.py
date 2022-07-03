@@ -4,7 +4,7 @@
 import json
 from channels.generic.websocket import AsyncWebsocketConsumer
 from channels.db import database_sync_to_async
-
+from chat.models import ChatModel
 
 class PersonalChatConsumer(AsyncWebsocketConsumer):
     """This class defines the consumer for personal chat."""
